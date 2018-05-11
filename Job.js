@@ -17,6 +17,10 @@ var jobSchema = new Schema({
 
 jobSchema.statics.TYPE_FOLLOWER = 'Follower';
 
+jobSchema.methods.getFollowers = function(cb) {
+  return this.model('Follower').find({ job_id: this._id }, cb);
+};
+
 // on every save, add the date
 jobSchema.pre('save', function(next) {
   // get the current date
