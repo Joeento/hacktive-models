@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 // create a schema
 var donationSchema = new Schema({
-    job: {type: Schema.Types.ObjectId, ref: 'Job'},
+    follower: {type: Schema.Types.ObjectId, ref: 'Follower'},
     tweet_id: String,
     amount: Number,
     created_at: Date,
