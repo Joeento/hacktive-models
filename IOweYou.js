@@ -2,16 +2,17 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 // create a schema
-var donationSchema = new Schema({
+var iOweYouSchema = new Schema({
     follower: {type: Schema.Types.ObjectId, ref: 'Follower'},
     tweet_id: String,
     amount: Number,
+    paid_at: Number,
     created_at: Date,
     updated_at: Date
 });
 
 // on every save, add the date
-donationSchema.pre('save', function(next) {
+iOweYouSchema.pre('save', function(next) {
   // get the current date
   var currentDate = new Date();
 
@@ -26,7 +27,7 @@ donationSchema.pre('save', function(next) {
 });
 // the schema is useless so far
 // we need to create a model using it
-var Donation = mongoose.model('Donation', donationSchema);
+var IOweYou = mongoose.model('IOweYou', iOweYouSchema);
 
-// make this available to our Donations in our Node applications
-module.exports = Donation;
+// make this available to our IOweYous in our Node applications
+module.exports = IOweYou;
