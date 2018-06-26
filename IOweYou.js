@@ -4,8 +4,13 @@ var Schema = mongoose.Schema;
 // create a schema
 var iOweYouSchema = new Schema({
     follower: {type: Schema.Types.ObjectId, ref: 'Follower'},
-    tweet_id: String,
+    tweet: {
+      id: String,
+      text: String,
+      date: Date
+    },
     amount: Number,
+    paid: Boolean,
     paid_at: Number,
     created_at: Date,
     updated_at: Date
