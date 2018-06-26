@@ -6,7 +6,7 @@ var followerSchema = new Schema({
     handle: String,
     name: String,
     job_id: {type: Schema.Types.ObjectId, ref: 'Job'},
-    tweets: [{id: String, text: String, date: Date}],
+    last_scanned_at: Date,
     created_at: Date,
     updated_at: Date
 });
