@@ -10,8 +10,6 @@ var iOweYouSchema = new Schema({
       date: Date
     },
     amount: Number,
-    paid: Boolean,
-    paid_at: Number,
     created_at: Date,
     updated_at: Date
 });
@@ -30,6 +28,11 @@ iOweYouSchema.pre('save', function(next) {
 
   next();
 });
+
+iOweYouSchema.methods.getPayment = function(cb) {
+  return this.model('Payment').findOne({i_owe_yous: {$in: [this._id]}, cb);
+};
+
 // the schema is useless so far
 // we need to create a model using it
 var IOweYou = mongoose.model('IOweYou', iOweYouSchema);
