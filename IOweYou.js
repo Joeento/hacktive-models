@@ -30,7 +30,7 @@ iOweYouSchema.pre('save', function(next) {
 });
 
 iOweYouSchema.methods.getPayment = function(cb) {
-  return this.model('Payment').findOne({i_owe_yous: {$in: [this._id]}, cb);
+  return this.model('Payment').findOne({i_owe_yous: {$in: [this._id]}}, cb);
 };
 
 // the schema is useless so far
