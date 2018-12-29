@@ -5,6 +5,7 @@ var Schema = mongoose.Schema;
 var jobSchema = new Schema({
     name: String,
     type: {type: String, enum: ['Follower']},
+    thumbnail_url: String,
     gofundme_url: String,
     charity: {type: Schema.Types.ObjectId, ref: 'Charity'},
     landing_text: String,
