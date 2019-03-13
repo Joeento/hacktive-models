@@ -5,6 +5,7 @@ var Schema = mongoose.Schema;
 var charitySchema = new Schema({
     name: String,
     website: String,
+    description: String,
     created_at: Date,
     updated_at: Date
 });
